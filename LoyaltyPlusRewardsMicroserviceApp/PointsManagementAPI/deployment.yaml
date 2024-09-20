@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: points-management-deployment
+  labels:
+    app: points-management
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: points-management
+  template:
+    metadata:
+      name: pointsmanagementk8s
+      labels:
+        env: prod
+        app: points-management
+        app.kubernetes.io/name: points-management
+    spec:
+      containers:
+        - name: points-management-container
+          image: het54/points-management:v1.0.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+              name: http-web-api
+              protocol: TCP
+          resources:
+            requests:
+              cpu: 300m
+              memory: 100Mi
+            limits:
+              cpu: 1000m
+              memory: 400Mi
+          env:
+            - name: ASPNETCORE_URLS
+              value: http://+:8080
+      restartPolicy: Always

@@ -1,0 +1,21 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: k6-load-test
+spec:
+  template:
+    spec:
+      containers:
+        - name: k6
+          image: het54/k6-test:v1.0.0
+          resources:
+            limits:
+              cpu: "1"
+              memory: "512Mi"
+            requests:
+              cpu: "500m"
+              memory: "256Mi"
+      restartPolicy: Never
+  backoffLimit: 4
+
+  

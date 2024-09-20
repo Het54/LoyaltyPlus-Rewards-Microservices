@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: customer-registration-and-auth-deployment
+  labels:
+    app: customer-registration-and-auth
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: customer-registration-and-auth
+  template:
+    metadata:
+      name: customerregistrationandauthk8s
+      labels:
+        env: prod
+        app: customer-registration-and-auth
+        app.kubernetes.io/name: customer-registration-and-auth
+    spec:
+      containers:
+        - name: customer-registration-and-auth-container
+          image: het54/customer-registration-and-auth:v1.0.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+              name: http-web-api
+              protocol: TCP
+          resources:
+            requests:
+              cpu: 300m
+              memory: 100Mi
+            limits:
+              cpu: 1000m
+              memory: 400Mi
+          env:
+            - name: ASPNETCORE_URLS
+              value: http://+:8080
+      restartPolicy: Always

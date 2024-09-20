@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: customer-registration-and-auth-service
+spec:
+  selector:
+    app: customer-registration-and-auth
+    app.kubernetes.io/name: customer-registration-and-auth
+  ports:
+    - protocol: TCP
+      port: 80 # for other pods/services in the cluster
+      targetPort: 8080 # port of container in the pods
+      nodePort: 32001 # external traffic
+  type: NodePort

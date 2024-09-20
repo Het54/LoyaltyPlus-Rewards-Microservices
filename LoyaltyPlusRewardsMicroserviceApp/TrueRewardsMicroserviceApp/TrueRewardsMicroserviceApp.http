@@ -1,0 +1,6 @@
+@TrueRewardsMicroserviceApp_HostAddress = http://localhost:5030
+
+GET {{TrueRewardsMicroserviceApp_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

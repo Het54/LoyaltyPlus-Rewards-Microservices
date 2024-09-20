@@ -1,0 +1,59 @@
+# This is a generated file. Not intended for manual editing.
+services:
+  customerregistrationandauthapi:
+    build:
+      context: "/Users/het/RiderProjects/LoyaltyPlus_Rewards/LoyaltyPlusRewardsMicroserviceApp"
+      dockerfile: "CustomerRegistrationAndAuthAPI/Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net8.0/CustomerRegistrationAndAuthAPI.dll"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+    image: "customerregistrationandauthapi:dev"
+    ports: []
+    volumes:
+    - "/Users/het/.nuget/packages:/home/app/.nuget/packages"
+    - "/Users/het/RiderProjects/LoyaltyPlus_Rewards/LoyaltyPlusRewardsMicroserviceApp/CustomerRegistrationAndAuthAPI:/app:rw"
+    - "/Users/het/RiderProjects/LoyaltyPlus_Rewards/LoyaltyPlusRewardsMicroserviceApp:/src:rw"
+    working_dir: "/app"
+  pointsmanagementapi:
+    build:
+      context: "/Users/het/RiderProjects/LoyaltyPlus_Rewards/LoyaltyPlusRewardsMicroserviceApp"
+      dockerfile: "PointsManagementAPI/Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net8.0/PointsManagementAPI.dll"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+    image: "pointsmanagementapi:dev"
+    ports: []
+    volumes:
+    - "/Users/het/.nuget/packages:/home/app/.nuget/packages"
+    - "/Users/het/RiderProjects/LoyaltyPlus_Rewards/LoyaltyPlusRewardsMicroserviceApp/PointsManagementAPI:/app:rw"
+    - "/Users/het/RiderProjects/LoyaltyPlus_Rewards/LoyaltyPlusRewardsMicroserviceApp:/src:rw"
+    working_dir: "/app"
+  transactionapi:
+    build:
+      context: "/Users/het/RiderProjects/LoyaltyPlus_Rewards/LoyaltyPlusRewardsMicroserviceApp"
+      dockerfile: "TransactionAPI/Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net8.0/TransactionAPI.dll"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+    image: "transactionapi:dev"
+    ports: []
+    volumes:
+    - "/Users/het/.nuget/packages:/home/app/.nuget/packages"
+    - "/Users/het/RiderProjects/LoyaltyPlus_Rewards/LoyaltyPlusRewardsMicroserviceApp/TransactionAPI:/app:rw"
+    - "/Users/het/RiderProjects/LoyaltyPlus_Rewards/LoyaltyPlusRewardsMicroserviceApp:/src:rw"
+    working_dir: "/app"

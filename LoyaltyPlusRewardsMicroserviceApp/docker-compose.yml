@@ -1,0 +1,24 @@
+﻿services:
+  customerregistrationandauthapi:
+    image: customerregistrationandauthapi
+    build:
+      context: .
+      dockerfile: CustomerRegistrationAndAuthAPI/Dockerfile
+    ports:
+      - "50123:8080"
+
+  pointsmanagementapi:
+    image: pointsmanagementapi
+    build:
+      context: .
+      dockerfile: PointsManagementAPI/Dockerfile
+    ports:
+      - "50124:8080"
+
+  transactionapi:
+    image: transactionapi
+    build:
+      context: .
+      dockerfile: TransactionAPI/Dockerfile
+    ports:
+      - "50125:8080"
